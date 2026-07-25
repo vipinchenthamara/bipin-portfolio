@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background: #0c0c0c;
+  font-family: 'Kanit', sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Silver gradient display type — shared by every section heading */
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Blue "trust" gradient — accent for the Contact pill (replaces the template magenta) */
+.accent-gradient {
+  background: linear-gradient(123deg, #001a2e 7%, #0067c0 37%, #1ba5c8 72%, #12c2b0 100%);
+}
+
+::selection {
+  background: rgba(27, 165, 200, 0.35);
+  color: #fff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Seamless auto-scrolling marquee. --marquee-period = width of one tile set. */
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-1 * var(--marquee-period, 0px)));
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(calc(-1 * var(--marquee-period, 0px)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none !important;
+  }
+}
